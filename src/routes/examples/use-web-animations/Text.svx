@@ -1,0 +1,28 @@
+
+
+This page is transformed from [@wellyshen/use-web-animations](https://use-web-animations.netlify.app/). 
+- [github page](https://github.com/wellyshen/use-web-animations)
+
+To make a library like this work from imports in SvelteKit, add the following to your 'vite.config.ts':
+
+```javascript
+...
+const config: UserConfig = {
+
+	...,
+
+	resolve:{
+		alias:{
+			react:"hooks-as-store"
+		}
+	},
+	ssr:{
+		noExternal:["@wellyshen/use-web-animations"]
+	}
+};
+...
+```
+
+The 'resolve.alias' redirects any occurence of 'react' to 'hooks-as-store'. The 'ssr.noExternal'
+is needed, so that the redirection also is applied to the imported library. If you get react errors,
+that the hook usage is not allowed, go to the 'node_modules' folder and delete the 'react' subfolder.

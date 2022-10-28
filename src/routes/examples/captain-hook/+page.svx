@@ -1,0 +1,81 @@
+<script lang="ts">
+    import {hook} from '$lib';
+    import useFetch from './useFetch';
+    import useFullScreen from './useFullScreen';
+    import useToggle from './useToggle';
+
+    const res = hook(useFetch,"/data/test.json");
+
+    const fullscreen = hook(useFullScreen);
+    const ref = $fullscreen.elementFS;
+
+    const toggle = hook(useToggle,true);
+    $: ([toggleValue,toggleAction] = $toggle);
+    let license=false;
+</script>
+
+# Examples from [captain-hook](https://github.com/stevenpersia/captain-hook)
+
+{#if $res.errors}
+
+{$res.errors}
+
+{:else}
+ 
+## useFetch
+This dataset is fetched with [captain-hooks](https://github.com/stevenpersia/captain-hook) useFetch hook.
+It uses useState and useEffect.
+
+{JSON.stringify($res.response)}
+
+{/if}
+
+## useFullScreen
+<div bind:this={ref.current} style:color={$fullscreen.isFS?"red":"black"}>
+Click the button to enter full screen mode. This hook uses useState, useEffect and useRef
+
+{#if $fullscreen.isFS}
+    <button on:click={$fullscreen.exitFS}>Exit fullscreen</button>
+{/if}
+</div>
+<button on:click={$fullscreen.triggerFS}>Trigger fullscreen</button>
+
+## useToggle
+
+This hook toggles. It uses useState and useCallback.
+
+<button on:click={toggleAction}>
+    Toggle value is: {toggleValue}
+</button>
+
+---
+
+<button on:click={()=>license = !license}>
+captain-hook license
+</button>
+{#if license}
+
+## MIT License
+
+Copyright (c) 2019 Steven Persia
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+{/if}
+

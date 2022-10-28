@@ -1,0 +1,7 @@
+# use-media
+
+The npm package 'use-media' is compiled from typescript to commonjs. Vite doesn't like it out-of-the-box.
+I installed '@originjs/vite-plugin-commonjs', additional to the other changes to 'vite.config.ts'(or .js)
+(see [here](/examples/use-web-animations)).
+Still, the hooks do not work in dev mode and throw an error. In the production build, everything seems to
+be fine.  

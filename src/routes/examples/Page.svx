@@ -1,0 +1,6 @@
+# hooks-as-store Examples
+
+- [captain-hook](/examples/captain-hook)
+- [use-web-animations](/examples/use-web-animations)
+- [use-media](/examples/use-media)
+
