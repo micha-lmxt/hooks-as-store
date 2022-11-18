@@ -1,6 +1,6 @@
-import { getOrAddHook } from '$lib/entry/cacheArray';
+import { getOrAddHook } from '$lib/entry/cacheArray.js';
 import { tick, onDestroy, onMount } from 'svelte';
-import { unequalArgs } from './utils';
+import { unequalArgs } from './utils.js';
 
 export type UseEffect = { reqs: any[] | undefined; cleanup?: () => void; mounted: boolean };
 

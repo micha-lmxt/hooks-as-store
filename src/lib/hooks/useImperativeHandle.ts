@@ -1,4 +1,4 @@
-import { useLayoutEffect } from './useLayoutEffect';
+import { useLayoutEffect } from './useLayoutEffect.js';
 
 export function useImperativeHandle(
 	ref: { current: any } | ((x: any) => { current: any }),

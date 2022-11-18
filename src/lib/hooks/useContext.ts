@@ -1,4 +1,4 @@
-import { getOrAddHook } from '$lib/entry/cacheArray';
+import { getOrAddHook } from '$lib/entry/cacheArray.js';
 import { getContext } from 'svelte';
 
 export function useContext<T>(context: any) {

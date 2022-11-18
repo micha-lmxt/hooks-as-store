@@ -1,4 +1,4 @@
-import { getOrAddHook } from '$lib/entry/cacheArray';
+import { getOrAddHook } from '$lib/entry/cacheArray.js';
 import { get, writable, type Writable } from 'svelte/store';
 
 function initialize<T>(start?: T, init?: (x?: T) => T) {

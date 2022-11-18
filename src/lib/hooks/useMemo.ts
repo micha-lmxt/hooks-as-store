@@ -1,5 +1,5 @@
-import { getOrAddHook } from '$lib/entry/cacheArray';
-import { unequalArgs } from './utils';
+import { getOrAddHook } from '$lib/entry/cacheArray.js';
+import { unequalArgs } from './utils.js';
 
 export type UseMemo<T> = { reqs?: any[]; val: T };
 

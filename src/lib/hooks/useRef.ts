@@ -1,4 +1,4 @@
-import { getOrAddHook } from '$lib/entry/cacheArray';
+import { getOrAddHook } from '$lib/entry/cacheArray.js';
 
 export type UseRef<T> = { current: T };
 

@@ -1,4 +1,4 @@
-export { hook, hookGroup } from './entry';
+export { hook, hookGroup } from './entry/index.js';
 export { useState, type UseState } from './hooks/useState.js';
 export { useEffect, type UseEffect } from './hooks/useEffect.js';
 export { useCallback } from './hooks/useCallback.js';

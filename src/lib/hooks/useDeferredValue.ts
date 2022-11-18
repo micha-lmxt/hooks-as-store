@@ -1,5 +1,5 @@
-import { useEffect } from './useEffect';
-import { useState } from './useState';
+import { useEffect } from './useEffect.js';
+import { useState } from './useState.js';
 
 export function useDeferredValue<T>(value: T) {
 	const [val, setVal] = useState(value);

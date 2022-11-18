@@ -1,6 +1,6 @@
-import { getOrAddHook } from '$lib/entry/cacheArray';
+import { getOrAddHook } from '$lib/entry/cacheArray.js';
 import { afterUpdate, onDestroy } from 'svelte';
-import { unequalArgs } from './utils';
+import { unequalArgs } from './utils.js';
 
 export type UseLayoutEffect = { reqs?: any[]; cleanup?: () => void; handler?: () => any };
 

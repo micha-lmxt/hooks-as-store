@@ -1,5 +1,5 @@
 import { writable, type Readable } from 'svelte/store';
-import { cacheArray } from './cacheArray';
+import { cacheArray } from './cacheArray.js';
 
 interface CustomHook<T extends any[], S> extends Readable<S> {
 	run: (...args: T) => void;

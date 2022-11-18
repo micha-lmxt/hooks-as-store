@@ -1,4 +1,4 @@
-import type { Hook } from '$lib/hooks';
+import type { Hook } from '$lib/hooks/index.js';
 
 export const cacheArray: { current: Hook[]; index: number } = { current: [], index: 0 };
 
