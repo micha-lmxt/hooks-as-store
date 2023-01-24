@@ -5,8 +5,8 @@ export type UseMemo<T> = { reqs?: any[]; val: T };
 
 const initialize = <T>(fn: () => T, reqs?: any[]) => {
 	return () => ({
-		reqs: reqs,
-		val: fn()
+		reqs: undefined,
+		val: undefined
 	});
 };
 

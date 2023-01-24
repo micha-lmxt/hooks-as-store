@@ -17,19 +17,39 @@ export function hook<T extends any[], S>(
 	const hooks = [...cacheArray.current];
 	const store = writable(result);
 
+	let debounce : null|any = null;
+
 	const run = (...args: T) => {
+		debounce = null ;
 		cacheArray.current = [...hooks];
 		cacheArray.index = 0;
 		lastvalues = args;
 		const result = hookfunction(...args);
 		store.set(result);
+		cacheArray.current = [];
+		cacheArray.index = 0;
 	};
 	let i = true;
+	
 	hooks.forEach((v) => {
-		if ('subscribe' in v)
+		if ('subscribe' in v) {
 			v.subscribe(() => {
-				if (!i) run(...lastvalues);
+				if (!i){
+					if (cacheArray.flushsync){
+						if (debounce){
+							clearTimeout(debounce)
+						}
+						run(...lastvalues)
+					}else{
+						if (!debounce ) {
+							debounce=setTimeout(()=>{
+							run(...lastvalues)
+						},1)
+					}
+				}  
+				}
 			});
+		}
 	});
 	i = false;
 	return {

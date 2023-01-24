@@ -10,3 +10,7 @@ export { useLayoutEffect, type UseLayoutEffect } from './hooks/useLayoutEffect.j
 export { useMemo, type UseMemo } from './hooks/useMemo.js';
 export { useReducer } from './hooks/useReducer.js';
 export { useRef, type UseRef } from './hooks/useRef.js';
+export { useBeforeUpdate } from './hooks/useBeforeUpdate.js';
+export { useContext } from './hooks/useContext.js';
+export { useSyncExternalStore, type UseSyncExternalStore } from './hooks/useSyncExternalStore.js';
+export { flushSync } from './entry/cacheArray.js';

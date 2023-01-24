@@ -16,7 +16,7 @@ function initialize<T>(start?: T, init?: (x?: T) => T) {
 }
 export type UseState<T> = Writable<T> & { setter: (t: T | ((prev: T) => T)) => void };
 
-export function useState<T>(start: T | (() => T)): [T, (val: T) => void] {
+export function useState<T>(start: T | (() => T)): [T, (val: (T | ((prev: T) => T))) => void] {
 	const s: T = typeof start === 'function' ? (start as () => T)() : start;
 
 	const hook = getOrAddHook(initialize(s)) as UseState<T>;
